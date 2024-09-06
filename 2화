@@ -1,0 +1,68 @@
+--노션--
+https://incredible-guan-388.notion.site/2-fcb36bf15ea44e94b2307292fc1144ac?pvs=25
+
+# 리눅스!
+
+1. 가장 먼저 VM 설치 17 버전인데 조금에 오류가 생겨 생각보다 늦었다.
+
+https://blogs.vmware.com/workstation/2024/05/vmware-workstation-pro-now-available-free-for-personal-use.html
+
+[VMware pro 다운로드 및 공개 Key 적용](https://heetaeblog.tistory.com/48)
+
+1. 리눅스에 대한 내용
+
+종류에 대한 내용을 많이 나눔
+
+어플라이언스 : 사전에 소프트웨어를 정의하여 전원을 공급하고 접속하면 작동하는 기기들을 뜻함
+
+컴플러이언스 : 회사 내부의 규칙을 뜻함.
+
+1. 리눅스기초
+
+데미안 개열, 페도라 개열
+
+Debuan
+
+`Ubuntu/kali/구름/whonix
+
+페도라
+
+-레드헷/CentOs/Orade/Tizen/Amazon/붉은별(북한)/안드로이드
+
+Gentoo(Chrome) 커마 기능 있음.
+
+### 리눅스는
+
+이 순서로 동작됨
+
+**커널 > 시스템 콜 > 쉘 > 라이브러리 > APP**
+
+기초!
+
+**계층적 파일구조**
+
+**장치의 파일화**
+
+**가상 메모리 사용**
+
+**동적 라이브러리 지원**
+
+**가상 콘솔**
+
+**파이프**
+
+**리아딩 렉션**
+
+**문자로된 설정**
+
+String = config
+
+파일 디스크립션 : 파일 is 중요
+
+### root
+
+bin, boot, dev, etc, home, lib, media, mnt, opt, root, sbin, srv, tmp 
+
+usr
+
+bin, icloud
