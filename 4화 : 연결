@@ -1,0 +1,99 @@
+---노션---
+https://incredible-guan-388.notion.site/4-464c76e6b8274aab8b17d690f266bd19?pvs=74
+
+# 4 : 연결
+
+# 연결
+
+오늘은 우분트 서버와 VScode에있는 파일을 연결시키고 개발하는 수업을 하였다.
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/fbe3a124-13d7-4fec-8951-44e991fee195/image.png)
+
+코드들을 정리 해보자
+
+- server.py
+    
+    ```python
+    import socket
+    
+    def echo_sever(host, port):
+        with socket.socket(socket.AF_INET, socket.
+                           SOCK_STREAM) as s:
+            s.bind((host, port))
+            s.listen()
+            print(f"Server listening on {host}:{port}")
+            conn, addr = s.accept()
+            with conn:
+                print(f"Connected by {addr}")
+                while True:
+                    data = conn.recv(1024)
+                    if not data:
+                        break
+                    conn.sendall(data)
+    echo_sever('127.0.0.1',65432)
+    ```
+    
+- client.py
+    
+    ```python
+    import socket
+    def echo_client(msg,host, port):
+            with socket.socket(socket.AF_INET,
+            socket.SOCK_STREAM) as s:
+                    s.connect((host, port))
+                    s.sendall(msg.encode())
+                    data = s.recv(1024)
+                    print(f"Received: {data.decode()}")
+    echo_client("hello world :D", '127.0.0.1',65432)
+    ```
+    
+
+서버 부터 올리고 그다음 클라이언트를 올리는게 순서가 맞음
+
+즉 소켓 즉 통신 프로그링을 알아야만 먼저 해킹을 할수있다.
+
+### GCC
+
+서버는 GCC라는 리눅스로 돌아가야함
+
+### 윈도우
+
+VS
+
+## C언어는
+
+c언어는 스택과 heap 이 있다.
+
+Stack = 지역변수
+
+변수를 선언하면 그 변수는 스텍에 쌓이지만
+
+연산과 같은 메모리에 할당되는 순간 heap한 친구가 땅 생성된다.
+
+## C언어의 꽃
+
+구조체는 객채이다.
+
+C언어에 근간 is 근본
+
+# C언어 실습
+
+### pointer
+
+포인터는 화살표다 즉 내가 목표로 두는 메모리에 할당하고싶은 자리에 할당시키는
+
+### sturct
+
+Struct 포인터
+
+fanc(함수) 포인터
+
+# 지금까지 한거
+
+리눅스 X 우분트  - 명령어 많이 사용해보기
+
+파이썬으로 서버 클라인트 연결해서 소캣 프로그래밍 해보기 AI is goth
+
+파이썬으로 네트워크 프로그래밍 해보기! System 프로그래밍
+
+C 언어 - is what? 진짜 모름
