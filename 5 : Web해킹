@@ -1,0 +1,35 @@
+===노션===
+https://incredible-guan-388.notion.site/5-Web-117fc4ac23d6456e8c0b3d0f825f5e15?pvs=25
+
+
+# 5 : Web 해킹
+
+# 웹 해킹
+
+무엇을 지켜야하나
+
+1. 기밀성 - 함부로 리드하지마라 (Read)
+2. 무결성 - 함부로 중요한 데이터를 노출시키지마라 (Write)
+3. 가용성  -  서비스를 쉽게 죽게 하지마라. (Server 다운 시키지마!)
+
+서버에게 사용자들에게 이상한 코드를 배포할수 있기때문에 주의해야함!
+
+# 도커?
+
+컨테이너화! 
+
+VM 에 시대는 가버림 이제는 컨테이너가 대세!
+
+성능 저하면에서도 가속화 임베디드 등 여러 OS들과 DB를 쉽게 관리할 수 있다는 점이 매우 좋다.
+
+우리는 컨테이너에서 작업한다.
+
+### 결과
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/65f0953a-198d-4f7f-8dfa-92d2f24e099c/image.png)
+
+web 해킹
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/21995eb9-0529-459c-b284-bdc4806392a8/image.png)
+
+리퀘 다딸수 있음
