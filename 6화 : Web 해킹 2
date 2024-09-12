@@ -1,0 +1,77 @@
+---노션---
+https://incredible-guan-388.notion.site/6-Web-2-192f8c2dbb27482988af02a2d8589982?pvs=74
+
+
+
+# 어제 이어서 하던 Web 해킹을 계속 해볼꺼임.
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/048d9851-83af-4705-a51f-c1c347156167/image.png)
+
+**무식하게 팰꺼임 즉 비밀번호 때려 마추기**
+
+[4003707694aeb44c654bf27a19249932-7afc95e02df629515960a3e45109e6f88db3a99e.zip](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/17e80179-0d45-4e34-8aff-3545b80835bc/4003707694aeb44c654bf27a19249932-7afc95e02df629515960a3e45109e6f88db3a99e.zip)
+
+**임시 파일**
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/bc044dcf-a40a-40d0-91b8-842268a563e7/image.png)
+
+**intruder 박고**
+
+**intruder 여기서**
+
+**때려맞추기 시작!**
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/08a66b48-92c8-4354-aafe-868bfb54a0fd/image.png)
+
+**그럼 걸리는 비밀번호가 있을꺼임**
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/f0c5e68f-19fe-43cc-a2a3-7b2566dce709/image.png)
+
+**그럼 여기서 세부정보 즉 연결됬다는 정보를 확인할수 있다.**
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/37fc6bd6-d650-466f-ad88-d46082d08e6d/image.png)
+
+### **hash**
+
+**즉 암호화를 뜻한다**
+
+**like = 1234 = sdkosop1j4opjop41jio j12iop4jopj2op41j2iop4j1op4j1**
+
+**요로코롬 사람들이 알아보기 힘들게 코드를 반환시켜주는 상식이다.**
+
+**그래서 이거 왜씀?** 
+
+**이유**
+
+1. **중복처리를 쉽게 하기위해서**
+2. **리스트 정렬을 좀더 쉽게할수 있게함.**
+
+# 여기서 잠깐!
+
+**여기서 encode, encrypt 에 개념을 잡고  가자!**
+
+**encode → char ↔ char = UTF-8과 같이 아스키코드 변환을 해주는 친구이기도 하다. (유니코드도) - 문자열이 중심**
+
+---
+
+**encrypt → 암호화** 
+
+**우리가 알지 못하는 언어들을  왔다갔다. 해독 또는 번역 해주는친구**
+
+**1234 = sdkosop1j4opjop41jio j12iop4jopj2op41j2iop4j1op4j1**
+
+**이거임.**
+
+# Command Injection
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/8db4709b-51a1-415b-ab0d-d8b4c2b76ca6/image.png)
+
+**이게 Injection 커맨드 이다.**
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/cbfcdaaf-4409-44ae-8697-4ff327e70b05/image.png)
+
+**커맨드 창에서는 ping 8.8.8.8 을 사용해서 피을 보내지만**
+
+**위 창에서는 8.8.8.8 즉 ping을 생략하고 ; 으로 명령어를 나누어 보낼수 있다. 한마디로 이미 커맨드창 즉 쉘를 먹어서 명령어를 날릴수 있다는거다. 예) 8.8.8.8; ls;**
+
+**이런식으로 명령어를 조합한다고 생각하면 편하다.**
